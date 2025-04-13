@@ -3,7 +3,7 @@ import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Stack;
 
-public class Main {
+public class InfixCompute {
     public static void main(String[] args) {
         Stack<String> ops = new Stack<>();
         Stack<Double> vals = new Stack<>();
