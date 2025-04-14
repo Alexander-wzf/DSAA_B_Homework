@@ -40,7 +40,6 @@ public class Problem8 {
     }
     public static String unlock(Queue<Integer> locks, Queue<Integer> keys, int locksNum, int keysNum){
         StringBuilder result = new StringBuilder();
-        int remainLocksNum = locksNum;
         // 遍历locks
         for (int i = 0; i < locksNum; i++) {
             int currentLock = locks.peek();
@@ -66,7 +65,6 @@ public class Problem8 {
                         keys.enqueue(saveKey[k]);
                     }
                 } else {
-                    remainLocksNum--;
                     keysNum--;
                     locks.dequeue();
                     break;
@@ -79,17 +77,17 @@ public class Problem8 {
                     result.append(locks.dequeue());
                     result.append(" ");
                 }
-                return result.toString();
+                return result.toString().trim();
             }
         }
         if (locks.isEmpty()){
-            return "\"NULL\"";
+            return "NULL";
         }else {
-            for (int j = 0; j < remainLocksNum; j++) {
-                result.append(locks.dequeue());
-                result.append(" ");
+            int N = locks.size();
+            for (int j = 0; j < N; j++) {
+                result.append(locks.dequeue()).append(" ");
             }
-            return result.toString();
+            return result.toString().trim();
         }
     }
 }
