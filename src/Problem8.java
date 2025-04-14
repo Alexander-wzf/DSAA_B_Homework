@@ -1,6 +1,4 @@
 import edu.princeton.cs.algs4.Queue;
-import edu.princeton.cs.algs4.Stack;
-
 import java.util.Scanner;
 
 public class Problem8 {
@@ -77,7 +75,7 @@ public class Problem8 {
                     result.append(locks.dequeue());
                     result.append(" ");
                 }
-                return result.toString().trim();
+                return result.toString().trim(); // 消除空格
             }
         }
         if (locks.isEmpty()){
@@ -87,7 +85,7 @@ public class Problem8 {
             for (int j = 0; j < N; j++) {
                 result.append(locks.dequeue()).append(" ");
             }
-            return result.toString().trim();
+            return result.toString().trim(); // 消除空格
         }
     }
 }
