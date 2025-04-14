@@ -3,10 +3,20 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Problem5 {
+    /**
+     * 判断是否为运算符
+     *
+     * @param c 需要判断的字符
+     */
     private static boolean isOperator(char c) {
         return c == '+' || c == '-' || c == '*' || c == '/';
     }
 
+    /**
+     * 得到运算符的优先级
+     * @param op 运算符
+     * @return int 越大说明优先级越高
+     */
     private static int getPriority(char op) {
         return switch (op) {
             case '+', '-' -> 1;
@@ -64,19 +74,19 @@ public class Problem5 {
         String result = String.join(" ", postfix);
 
         // 计算表达式
-        Stack<Double> vals = new Stack<>();
+        Stack<Double> values = new Stack<>();
 
         String[] elements = result.split(" ");
         for (String element : elements) {
             switch (element) {
-                case "+" -> vals.push(vals.pop() + vals.pop());
-                case "-" -> vals.push(-(vals.pop() - vals.pop()));
-                case "*" -> vals.push(vals.pop() * vals.pop());
-                case "/" -> vals.push(1 / (vals.pop() / vals.pop()));
-                default -> vals.push(Double.parseDouble(element));
+                case "+" -> values.push(values.pop() + values.pop());
+                case "-" -> values.push(-(values.pop() - values.pop()));
+                case "*" -> values.push(values.pop() * values.pop());
+                case "/" -> values.push(1 / (values.pop() / values.pop()));
+                default -> values.push(Double.parseDouble(element));
             }
         }
-        Double value = vals.pop();
+        Double value = values.pop();
 
         System.out.printf("%s,%.2f",result,value);
     }
